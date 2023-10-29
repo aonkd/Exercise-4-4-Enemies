@@ -14,7 +14,7 @@ var points = []
 const margin = 1.5
 
 func _ready():
-	$AnimatedSprite2D.play("move")
+	$AnimatedSprite2D.play("Moving")
 	call_deferred("nav_setup")
 
 func nav_setup():

@@ -11,6 +11,7 @@ func _ready():
 	position = path[0]
 	velocity.x = walking
 	SM.set_state("Move")
+	
 
 func _physics_process(_delta):
 	move_and_slide()
@@ -23,7 +24,7 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.flip_h = false
 		direction = 1
 		$Attack.target_position.x = abs($Attack.target_position.x)
-	if $AnimatedSprite2D.animation == "Attack": $AnimatedSprite2D.offset.x = 7*direction
+	if $AnimatedSprite2D.animation == "Attacking": $AnimatedSprite2D.offset.x = 7*direction
 	else: $AnimatedSprite2D.offset.x = 0
 	
 func set_animation(anim):
@@ -56,3 +57,4 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Above_and_Below_body_entered(body):
 	if body.name == "Player" and SM.state_name != "Die":
 		body.die()
+		
